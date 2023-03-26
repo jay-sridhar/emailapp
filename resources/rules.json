@@ -1,0 +1,30 @@
+{
+  "description": "Mark Orkut mails as unread, remove 'Apptest1' label and add 'Apptest2'",
+  "predicate": "all",
+  "rules": [
+    {
+      "field": "subject",
+      "predicate": "contains",
+      "value": "orkut"
+    },
+    {
+      "field": "from",
+      "predicate": "contains",
+      "value": "orkut"
+    },
+    {
+      "field": "date_received",
+      "predicate": "more than",
+      "value": "40 months"
+    }
+  ],
+  "action": {
+    "addLabelIds": [
+      "Label_7242846678098072756",
+      "UNREAD"
+    ],
+    "removeLabelIds": [
+      "Label_6750378022126076362"
+    ]
+  }
+}
