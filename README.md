@@ -61,7 +61,7 @@ After you give consent to the scopes from your Google account, a token.json file
 ![initial_perm_consent_image](./resources/initial_perm_consent.png "Initial OAuth permission link")
 
 2. Copy the URL into a browser and give consent.
-![consent_to_scopes](./resources/consent_to_scopes.png) "Consent to read and modify scopes")
+![consent_to_scopes](./resources/consent_to_scopes.png "Consent to read and modify scopes")
 
 3. Running the above script would fetch all the emails from your Gmail account. You could make use of the available arguments to pull a subset of emails to the database.
 ~~~
