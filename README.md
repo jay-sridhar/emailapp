@@ -93,16 +93,22 @@ Demo screens
 ----
 1. Scenario: From my Gmail account, I am looking to fetch messages from "Orkut" that are older than 2015 into the database.
 ![search_filter_image](./resources/search_filter.png "Search filter on Gmail")
+
 2. Running the download script with filter condition to only fetch the needed emails for demo into the DB
 ![download_script](./resources/download_script.png "Download script")
+
 3. Running the count queries to verify. 
 ![download_queries](./resources/download_queries.png "DB queries to verify counts")
+
 4. A snapshot of the logs corresponding to the download action. Log file is available under the /logs folder which is placed under the project root, (/emailapp). Sample log
 ![fetch_script_logs](./resources/fetch_script_logs.png "Log messages corresponding to the download script")
+
 5. Configuring rules.json to remove "Apptest1" label, make the messages unread and add "Apptest2" label to the above Orkut messages, but this time using the rules processing script.
 ![rules_json_file](./resources/rules_json_file.png "Writing a rule to test")
+
 6. A snapshot of the rules processing script and the logs
 ![running_rules_script](./resources/running_rules_script.png "Rules processing script")
+
 7. Snapshot from my Gmail account after running the rules processor script
 ![gmail_after_running_rules](./resources/gmail_after_running_rules.png "Gmail snapshot after running rules")
 
