@@ -24,17 +24,18 @@ After completing the prerequisites and the required Google API / OAuth setup fol
     cd emailapp
     pip install -r requirements.txt
 ~~~
-3. Create the user "appuser" with remote DB access 
+3. Create the user "appuser" with remote DB access. (Need to modify the credentials stored in config/settings.py if you are creating a user with other credentials)
 ~~~~
 CREATE USER 'appuser'@'localhost' IDENTIFIED BY '$ecr3tpas5w0rD';
 CREATE DATABASE google_mail;
 GRANT ALL ON google_mail.* TO 'appuser'@'localhost';
 FLUSH PRIVILEGES;
 ~~~~
-4. Source the database schema file (path from emailapp) 'dbschema/google_mail_schema.sql'
+4. Source the database schema file, present in the project root (emailapp/) 
 ~~~~~
-source dbschema/google_mail_schema.sql
+source schema.sql
 ~~~~~
+![data_model_image](./resources/data_model.png "Data model")
 5. Set the Python path to 'src' directory
 ~~~~~
 cd src
@@ -52,7 +53,13 @@ Email syncing script (when run without arguments) will download all the emails f
 cd src/scripts
 python email_download_script.py 
 ~~~~~
-Note: Running the above script would fetch all the emails from your Gmail account. You could make use of the available arguments to pull a subset of emails to the database.
+Notes:
+
+1. When running the script for the first time, Google asks you to consent to the scopes required via a link.
+After you give consent to the scopes from your Google account, a token.json file will be generated under src/config/.
+![initial_perm_consent_image](./resources/initial_perm_consent.png "Initial OAuth permission link")
+
+2. Running the above script would fetch all the emails from your Gmail account. You could make use of the available arguments to pull a subset of emails to the database.
 ~~~
 usage: email_download_script.py [-h] [-f fetch_mode] [-m max_limit] [-s page_size] [-q querystring] [-l labels [labels ...]]
 
@@ -111,6 +118,14 @@ Useful Limits
 | Maximum retention period for a trashed message (days)            |  30   |
 | Maximum message ids per bulk modify (via Gmail API)              | 1000  |
 
+
+Improvement areas
+--------
+1. Unit tests to be added.
+2. Parallelism when fetching emails and processing rules.
+3. Storing and indexing on to / cc values (separating alias and email ids)
+4. Storage to enable content parsing (of messages)
+5. Support for nested rules (query builder)
 
 Resources
 -------

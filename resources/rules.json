@@ -6,25 +6,16 @@
       "field": "subject",
       "predicate": "contains",
       "value": "orkut"
-    },
-    {
-      "field": "from",
-      "predicate": "contains",
-      "value": "orkut"
-    },
-    {
-      "field": "date_received",
-      "predicate": "more than",
-      "value": "40 months"
     }
   ],
   "action": {
+    "removeLabelIds": [
+      "Label_6750378022126076362",
+      "IMPORTANT"
+    ],
     "addLabelIds": [
       "Label_7242846678098072756",
       "UNREAD"
-    ],
-    "removeLabelIds": [
-      "Label_6750378022126076362"
     ]
   }
 }

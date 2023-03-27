@@ -17,7 +17,7 @@ class Downloader(object):
 
     def download(self):
         EmailProcessor().download_emails_to_db(self.max_fetch_limit, self.fetch_mode, **self.parameter_dict)
-        print()
+        print("Done")
 
 
 if __name__ == "__main__":

@@ -9,11 +9,8 @@ from googleapiclient.discovery import build
 from googleapiclient.errors import HttpError
 
 from lib.logger_utils import get_logger
+from config.settings import TOKEN_FILE_PATH, CREDENTIALS_FILE_PATH, SCOPES
 
-# If modifying these scopes, delete the file token.json.
-SCOPES = ['https://www.googleapis.com/auth/gmail.readonly', 'https://www.googleapis.com/auth/gmail.modify']
-TOKEN_FILE_PATH = 'config/token.json'
-CREDENTIALS_FILE_PATH = 'config/credentials.json'
 LOGGER = get_logger(__name__)
 
 
@@ -55,35 +52,3 @@ class GoogleAPIHelper(object):
         except HttpError as error:
             # TODO(developer) - Handle errors from gmail API.
             LOGGER.exception('An exception while connecting to API. Details %s', error)
-
-
-
-
-
-if __name__ == '__main__':
-    service = GoogleAPIHelper().get_service_instance()
-
-    # results = service.users().labels().list(userId='me').execute()
-    results = service.users().getProfile(userId='me').execute()
-    print(results)
-
-    print(results)  # orkut before:1270560492 # has:drive oneplus # EmailAPITest
-
-    messages = results.get('messages', [])
-    print(results.keys())
-    print(type(results))
-    print(results.get('nextPageToken'))
-    print(results.get('resultSizeEstimate'))
-    n = 0
-    for item in messages:
-        # result = service.users().messages().get(userId='me', id=item['id'], format='metadata', metadataHeaders=[]).execute()
-        # print(result)
-        # result = service.users().messages().get(userId='me', id=item['id'], format='full').execute()
-        # print(result)
-        # result = service.users().messages().get(userId='me', id=item['id'], format='raw').execute()
-        # print(result)
-        # result = service.users().messages().get(userId='me', id=item['id'], format='minimal').execute()
-        #
-        # print(result)
-        result = service.users().messages().get(userId='me', id=item['id']).execute()
-        print(result)

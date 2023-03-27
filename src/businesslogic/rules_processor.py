@@ -48,6 +48,7 @@ class RulesProcessor(object):
 
     def _get_connection(self):
         self.__connection = DBUtils.renew_or_get_new_connection(self.__connection)
+        return self.__connection
 
     def _close_connection(self):
         connection_id = self.__connection.connection_id
@@ -104,6 +105,18 @@ class RulesProcessor(object):
         self.service.users().messages().batchModify(userId='me')
 
     def process_rules(self, rules):
+        """
+        :brief: Rules are processed as follows:
+                1. Validate the JSON (dict)
+                2. Get the SQL condition for each filter in the rules
+                3. Apply the aggregate predicate (any / all)
+                4. Fetch the message ids by running the final filter query
+                5. For each batch of message ids (BULK_UPDATE_BATCH_SIZE)
+                    a. Call the Gmail bulk modify API with the batch of messages and action (labels)
+                    b. When successful, update the local database by applying the action
+        :param rules:
+        :raises: ValueError when the rules do not pass the validation checks
+        """
         try:
             self._validate_rules(rules)
         except ValueError as ex:
@@ -111,14 +124,19 @@ class RulesProcessor(object):
             raise
         query_condition = self._get_query_condition_for_rules(rules)
         LOGGER.debug(f"final query condition is {query_condition}")
-        self._get_connection()
-        message_ids_list = EmailDAO(self.__connection).fetch_message_ids(query_condition)
+        message_ids_list = EmailDAO(self._get_connection()).fetch_message_ids(query_condition)
         self._close_connection()
+        if not message_ids_list:
+            print("\n\nOUTPUT\nNo messages in the database match the rule")
+            return
+        add_label_ids = rules['action'].get('addLabelIds') or []
+        remove_label_ids = rules['action'].get('removeLabelIds') or []
         while True:
+            current_batch_messages_list = message_ids_list[:BULK_UPDATE_BATCH_SIZE]
             # Process bulk update in batches (max batch size of Google's bulk update is 1000)
-            request_body = {'ids': message_ids_list[:BULK_UPDATE_BATCH_SIZE-1],
-                            'addLabelIds': rules['action'].get('addLabelIds') or [],
-                            'removeLabelIds': rules['action'].get('removeLabelIds') or []
+            request_body = {'ids': current_batch_messages_list,
+                            'addLabelIds': add_label_ids,
+                            'removeLabelIds': remove_label_ids
                             }
             LOGGER.debug(request_body)
             # Call Gmail's batch modify API
@@ -127,7 +145,13 @@ class RulesProcessor(object):
             if response_body:
                 LOGGER.error(f"Error in processing rules. Details: {response_body}")
             else:
-                LOGGER.info(f"Bulk modify succeeded!")
-            message_ids_list = message_ids_list[BULK_UPDATE_BATCH_SIZE-1:]
+                EmailDAO(self._get_connection()).update_labels(add_label_ids,
+                                                               remove_label_ids,
+                                                               current_batch_messages_list)
+                self.__connection.commit()
+                LOGGER.info(f"Processed {len(current_batch_messages_list)} of {len(message_ids_list)}")
+                print(f"Processed {len(current_batch_messages_list)} of {len(message_ids_list)}")
+            message_ids_list = message_ids_list[BULK_UPDATE_BATCH_SIZE:]
             if not message_ids_list:
                 break
+        print("\n\nOUTPUT\nDone")

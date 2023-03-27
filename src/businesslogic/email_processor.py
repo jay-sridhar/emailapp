@@ -20,36 +20,31 @@ class EmailProcessor(object):
 
     def _get_connection(self):
         self.__connection = DBUtils.renew_or_get_new_connection(self.__connection)
-
-    def fetch_user_messages_meta(self, user_id='me', page_token=None, query_string=None, include_spam=False,
-                                 max_results=10):
-        return self.service.users().messages().list(userId=user_id, maxResults=max_results, q=query_string,
-                                                    includeSpamTrash=include_spam, pageToken=page_token).execute()
+        return self.__connection
 
     def _download_and_save_labels(self):
+        EmailDAO(self._get_connection()).remove_all_labels()
         labels = self.service.users().labels().list(userId='me').execute()
         # insert labels into the database
-        self._get_connection()
-        cursor = self.__connection.cursor()
-        cursor.execute("delete from label")
         for label in labels.get('labels'):
-            cursor.execute(f"insert into label(`id`, `name`, `type`, `refreshed_on`) values ('{label['id']}', "
-                           f"'{label['name']}', '{label['type']}', now())")
-        cursor.close()
+            EmailDAO(self._get_connection()).insert_label(label)
         self.__connection.commit()
 
     def __sync_emails(self, emails):
         """
-        :param emails:
-        :return:
+        Saves / syncs the email contents to the database.
+        :param emails: List of message content fetched from batch API
         """
         self._get_connection()
         if self.fetch_mode == MESSAGE_FORMAT_MINIMAL:
-            EmailDAO(self.__connection).bulk_sync_labels(emails)
+            EmailDAO(self.__connection).upsert_labels(emails)
         else:
-            EmailDAO(self.__connection).bulk_insert_attributes_and_labels(emails)
+            EmailDAO(self.__connection).upsert_attributes_and_labels(emails)
 
     def __process_batch_request(self, emails, batch_header, data):
+        """
+        Call the Google's batch GET email API
+        """
         data += f'--{END_OF_REQUEST_DELIMITER}--'
         r = requests.post(f"https://www.googleapis.com/batch/gmail/v1",
                           headers=batch_header, data=data)
@@ -63,6 +58,9 @@ class EmailProcessor(object):
         LOGGER.info(f"Processed {len(emails)} emails")
 
     def _batch_get_email_details(self, messages):
+        """
+        Bulk fetches email contents in multiples of BATCH_FETCH_EMAIL_SIZE
+        """
         emails = []
         batch_header = {'Authorization': f'Bearer {self.__token}',
                         'Content-Type': f'multipart/mixed; boundary="{END_OF_REQUEST_DELIMITER}"'}
@@ -89,18 +87,29 @@ class EmailProcessor(object):
             data += f'--{END_OF_REQUEST_DELIMITER}--'
             self.__process_batch_request(emails, batch_header, data)
 
-    def _download_and_save_message_ids(self, fetch_mode, **kwargs):
+    def _download_and_save_emails(self, fetch_mode, **kwargs):
+        """
+        :brief: This method does the following operations with pagination till all the pages are processed.
+                1. Gets the message ids for all the messages (or for the given filter when supplied)
+                2. Upserts the message ids into the database
+                3. Bulk reads the email contents corresponding to the message ids and stores / syncs the same
+        :param fetch_mode:  One of full or minimal (Supported by Gmail messages.get API).
+                            Only labels and history id are fetched with minimal mode
+        :param kwargs:  arguments supported by users.messages.list API.
+                        Refer: https://developers.google.com/gmail/api/reference/rest/v1/users.messages/list#query-parameters
+        """
         defaults = {'userId': 'me'}
         self.fetch_mode = fetch_mode
-
         if kwargs:
             kwargs.update(defaults)
         else:
             kwargs = defaults
         while True:
             result = self.service.users().messages().list(**kwargs).execute()
-            self._get_connection()
-            EmailDAO(self.__connection).bulk_insert_message_ids(result['messages'])
+            if not result.get('messages'):
+                print("No emails found with the matching filters")
+                break
+            EmailDAO(self._get_connection()).bulk_insert_message_ids(result['messages'])
             self._batch_get_email_details(result['messages'])
             next_page_token = result.get('nextPageToken')
             LOGGER.info(f"Next page token is {next_page_token}")
@@ -112,4 +121,4 @@ class EmailProcessor(object):
     def download_emails_to_db(self, max_fetch_limit, fetch_mode, **kwargs):
         self.__max_fetch_limit = max_fetch_limit
         self._download_and_save_labels()
-        self._download_and_save_message_ids(fetch_mode, **kwargs)
+        self._download_and_save_emails(fetch_mode, **kwargs)
