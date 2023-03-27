@@ -127,7 +127,7 @@ Useful Limits
 | Maximum labels allowed per user account                                     |  500  |
 | Maximum retention period for a trashed message (days)                       |  30   |
 | Maximum page size when listing messages (via Gmail API)                     |  500  |
-| Maximum GET requests that could be added to a batch request (via Gmail API) |  100  |
+| Maximum GET requests that could be added to a batch request (via Gmail API) | 1000  |
 | Maximum message ids per bulk modify (via Gmail API)                         | 1000  |
 
 
