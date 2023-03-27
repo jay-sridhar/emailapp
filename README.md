@@ -1,8 +1,9 @@
 Prerequisites
 -------------
   * Python 3.8+ 
-  * MySQL server (7+) [download link](https://dev.mysql.com/downloads/)
-  * Google Mail API setup
+  * MySQL server (8.0.17+) [download link](https://dev.mysql.com/downloads/) or from [dockerimage](https://hub.docker.com/_/mysql) 
+  * Google Mail API setup - refer the upcoming section.
+  * Application setup - refer the upcoming section.
 
 Google API setup
 ---------
@@ -31,7 +32,7 @@ CREATE DATABASE google_mail;
 GRANT ALL ON google_mail.* TO 'appuser'@'localhost';
 FLUSH PRIVILEGES;
 ~~~~
-4. Source the database schema file, present in the project root (emailapp/) 
+4. Login to the MySQL client and source the database schema file, present in the project root (emailapp/) 
 ~~~~~
 source schema.sql
 ~~~~~
@@ -61,7 +62,7 @@ After you give consent to the scopes from your Google account, a token.json file
 ![initial_perm_consent_image](./resources/initial_perm_consent.png "Initial OAuth permission link")
 
 2. Copy the URL into a browser and give consent.
-![consent_to_scopes](./resources/consent_to_scopes.png) "Consent to read and modify scopes")
+![consent_to_scopes](./resources/consent_to_scopes.png "Consent to read and modify scopes")
 
 3. Running the above script would fetch all the emails from your Gmail account. You could make use of the available arguments to pull a subset of emails to the database.
 ~~~
@@ -83,11 +84,14 @@ optional arguments:
 
 ### Rules processing script ###
 
-Please refer to the existing rules.json (resources/rules.json)  for reference to add / modify new rules.
+Rules processing script allows you to run rules based on one or more conditions and may result in one or more actions. The script requires a mandatory argument (i.e., path to the .json rule file).
+Please refer the existing rules.json (resources/rules.json) to add / modify new rules on top of an existing setup.
 ~~~~~
 cd src/scripts
 python rules_processing_script.py -r <path/to/rules.json> 
 ~~~~~
+Note:
+The script runs the rule filters on the local database and applies them to the Gmail account. It then updates the local database once the update on the Gmail account is successful.
 
 Demo screens
 ----
