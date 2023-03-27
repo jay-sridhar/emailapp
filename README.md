@@ -1,8 +1,8 @@
 Prerequisites
 -------------
   * Python 3.8+ 
-  * MySQL server (7+) [download link](https://dev.mysql.com/downloads/)
-  * Google Mail API setup
+  * MySQL server (8.0.17+) [download link](https://dev.mysql.com/downloads/) or from [dockerimage](https://hub.docker.com/_/mysql) 
+  * Google Mail API setup - refer the upcoming section to setup this.
 
 Google API setup
 ---------
@@ -31,7 +31,7 @@ CREATE DATABASE google_mail;
 GRANT ALL ON google_mail.* TO 'appuser'@'localhost';
 FLUSH PRIVILEGES;
 ~~~~
-4. Source the database schema file, present in the project root (emailapp/) 
+4. Login to the MySQL client and source the database schema file, present in the project root (emailapp/) 
 ~~~~~
 source schema.sql
 ~~~~~
