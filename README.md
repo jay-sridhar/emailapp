@@ -2,7 +2,8 @@ Prerequisites
 -------------
   * Python 3.8+ 
   * MySQL server (8.0.17+) [download link](https://dev.mysql.com/downloads/) or from [dockerimage](https://hub.docker.com/_/mysql) 
-  * Google Mail API setup - refer the upcoming section to setup this.
+  * Google Mail API setup - refer the upcoming section.
+  * Application setup - refer the upcoming section.
 
 Google API setup
 ---------
@@ -83,11 +84,14 @@ optional arguments:
 
 ### Rules processing script ###
 
-Please refer to the existing rules.json (resources/rules.json)  for reference to add / modify new rules.
+Rules processing script allows you to run rules based on one or more conditions and may result in one or more actions. The script requires a mandatory argument (i.e., path to the .json rule file).
+Please refer the existing rules.json (resources/rules.json) to add / modify new rules on top of an existing setup.
 ~~~~~
 cd src/scripts
 python rules_processing_script.py -r <path/to/rules.json> 
 ~~~~~
+Note:
+The script runs the rule filters on the local database and applies them to the Gmail account. It then updates the local database once the update on the Gmail account is successful.
 
 Demo screens
 ----
