@@ -1,0 +1,371 @@
+2023-03-27 07:12:58,585 DEBUG   google_api:42:__setup_token Using existing token
+2023-03-27 07:12:58,585 DEBUG   oauth2_session:104:new_state Generated new state 5VYKxmqYRzafGY1Um0FhJxSsBGVmLq.
+2023-03-27 07:13:42,873 INFO    flow:464:log_message "GET /?state=5VYKxmqYRzafGY1Um0FhJxSsBGVmLq&code=4/0AVHEtk49lHG5upnisGlErcKtxDwkOBfeB8GRHd8u2wYEHLclyLMB03wqk9uVai0O9OUtKQ&scope=https://www.googleapis.com/auth/gmail.readonly%20https://www.googleapis.com/auth/gmail.modify HTTP/1.1" 200 65
+2023-03-27 07:13:42,875 DEBUG   oauth2_session:304:fetch_token Encoding `client_id` "1035085568976-hhaugi6p1pufpms65u1q1h8dh5nu0ldi.apps.googleusercontent.com" with `client_secret` as Basic auth credentials.
+2023-03-27 07:13:42,876 DEBUG   oauth2_session:518:request Requesting url https://oauth2.googleapis.com/token using method POST.
+2023-03-27 07:13:42,876 DEBUG   oauth2_session:519:request Supplying headers {'Accept': 'application/json', 'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'} and data {'grant_type': 'authorization_code', 'code': '4/0AVHEtk49lHG5upnisGlErcKtxDwkOBfeB8GRHd8u2wYEHLclyLMB03wqk9uVai0O9OUtKQ', 'redirect_uri': 'http://localhost:36417/'}
+2023-03-27 07:13:42,876 DEBUG   oauth2_session:520:request Passing through key word arguments {'timeout': None, 'auth': <requests.auth.HTTPBasicAuth object at 0x7fa49ae08fd0>, 'verify': True, 'proxies': None, 'cert': None}.
+2023-03-27 07:13:42,879 DEBUG   connectionpool:1003:_new_conn Starting new HTTPS connection (1): oauth2.googleapis.com:443
+2023-03-27 07:13:43,219 DEBUG   connectionpool:456:_make_request https://oauth2.googleapis.com:443 "POST /token HTTP/1.1" 200 None
+2023-03-27 07:13:43,220 DEBUG   oauth2_session:353:fetch_token Request to fetch token completed with status 200.
+2023-03-27 07:13:43,220 DEBUG   oauth2_session:354:fetch_token Request url was https://oauth2.googleapis.com/token
+2023-03-27 07:13:43,220 DEBUG   oauth2_session:355:fetch_token Request headers were {'User-Agent': 'python-requests/2.28.2', 'Accept-Encoding': 'gzip, deflate', 'Accept': 'application/json', 'Connection': 'keep-alive', 'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8', 'Content-Length': '157', 'Authorization': 'Basic MTAzNTA4NTU2ODk3Ni1oaGF1Z2k2cDFwdWZwbXM2NXUxcTFoOGRoNW51MGxkaS5hcHBzLmdvb2dsZXVzZXJjb250ZW50LmNvbTpHT0NTUFgtTVlOVURiMVJ2RDd1OFF6MUVYQk54WG5mNWtVbA=='}
+2023-03-27 07:13:43,220 DEBUG   oauth2_session:356:fetch_token Request body was grant_type=authorization_code&code=4%2F0AVHEtk49lHG5upnisGlErcKtxDwkOBfeB8GRHd8u2wYEHLclyLMB03wqk9uVai0O9OUtKQ&redirect_uri=http%3A%2F%2Flocalhost%3A36417%2F
+2023-03-27 07:13:43,220 DEBUG   oauth2_session:357:fetch_token Response headers were {'Expires': 'Mon, 01 Jan 1990 00:00:00 GMT', 'Cache-Control': 'no-cache, no-store, max-age=0, must-revalidate', 'Date': 'Mon, 27 Mar 2023 01:43:43 GMT', 'Pragma': 'no-cache', 'Content-Type': 'application/json; charset=utf-8', 'Vary': 'Origin, X-Origin, Referer', 'Content-Encoding': 'gzip', 'Server': 'scaffolding on HTTPServer2', 'X-XSS-Protection': '0', 'X-Frame-Options': 'SAMEORIGIN', 'X-Content-Type-Options': 'nosniff', 'Alt-Svc': 'h3=":443"; ma=2592000,h3-29=":443"; ma=2592000', 'Transfer-Encoding': 'chunked'} and content {
+  "access_token": "ya29.a0Ael9sCOl6-SnVe7cQeBdIYR6HxmxUNtTljRJFf8O_BN15AYskeKCdS1B-14Z5bgwT6vBRS4df-QKlmkJXGzK_1_I4CJgh_byTtqFbe0nb7ptbTVPRwQFT7CSAZuNQPtvoylWuTxfDQ9upxQ6huUyl0ZIc9r7aCgYKAWYSARESFQF4udJh9rX6yTSbjMxo-eK2KkEEvQ0163",
+  "expires_in": 3599,
+  "refresh_token": "1//0gYuvJtP53kilCgYIARAAGBASNwF-L9IrxbmtAfEvVdhXm2M5cRxIjsgncAdtAS6cxXQLt8fJrWkqm-52GwgGOkMnVp47wQ2Xtns",
+  "scope": "https://www.googleapis.com/auth/gmail.readonly https://www.googleapis.com/auth/gmail.modify",
+  "token_type": "Bearer"
+}.
+2023-03-27 07:13:43,220 DEBUG   oauth2_session:358:fetch_token Invoking 0 token response hooks.
+2023-03-27 07:13:43,227 DEBUG   oauth2_session:368:fetch_token Obtained token {'access_token': 'ya29.a0Ael9sCOl6-SnVe7cQeBdIYR6HxmxUNtTljRJFf8O_BN15AYskeKCdS1B-14Z5bgwT6vBRS4df-QKlmkJXGzK_1_I4CJgh_byTtqFbe0nb7ptbTVPRwQFT7CSAZuNQPtvoylWuTxfDQ9upxQ6huUyl0ZIc9r7aCgYKAWYSARESFQF4udJh9rX6yTSbjMxo-eK2KkEEvQ0163', 'expires_in': 3599, 'refresh_token': '1//0gYuvJtP53kilCgYIARAAGBASNwF-L9IrxbmtAfEvVdhXm2M5cRxIjsgncAdtAS6cxXQLt8fJrWkqm-52GwgGOkMnVp47wQ2Xtns', 'scope': ['https://www.googleapis.com/auth/gmail.readonly', 'https://www.googleapis.com/auth/gmail.modify'], 'token_type': 'Bearer', 'expires_at': 1679885022.227837}.
+2023-03-27 07:13:43,235 INFO    __init__:49:autodetect file_cache is only supported with oauth2client<4.0.0
+2023-03-27 07:13:43,242 DEBUG   discovery:1205:method URL being requested: GET https://gmail.googleapis.com/gmail/v1/users/me/labels?alt=json
+2023-03-27 07:13:43,757 DEBUG   db_utils:18:get_new_connection Created new connection with id: 164
+2023-03-27 07:13:43,790 DEBUG   discovery:1205:method URL being requested: GET https://gmail.googleapis.com/gmail/v1/users/me/messages?q=from%3A%22orkut%22+subject%3A%22orkut%22&maxResults=50&alt=json
+2023-03-27 07:13:46,000 INFO    email:25:bulk_insert_message_ids Saved message ids
+2023-03-27 07:13:46,006 DEBUG   connectionpool:1003:_new_conn Starting new HTTPS connection (1): www.googleapis.com:443
+2023-03-27 07:13:46,439 DEBUG   connectionpool:456:_make_request https://www.googleapis.com:443 "POST /batch/gmail/v1 HTTP/1.1" 200 None
+2023-03-27 07:13:46,465 INFO    email:50:bulk_sync_labels Synchronized message labels
+2023-03-27 07:13:46,482 INFO    email:76:bulk_insert_attributes_and_labels Saved message data
+2023-03-27 07:13:46,483 INFO    email_processor:63:__process_batch_request Processed 13 emails
+2023-03-27 07:13:46,483 INFO    email_processor:106:_download_and_save_message_ids Next page token is None
+2023-03-27 07:14:49,952 INFO    __init__:49:autodetect file_cache is only supported with oauth2client<4.0.0
+2023-03-27 07:14:49,956 DEBUG   discovery:1205:method URL being requested: GET https://gmail.googleapis.com/gmail/v1/users/me/labels?alt=json
+2023-03-27 07:14:50,411 DEBUG   db_utils:18:get_new_connection Created new connection with id: 165
+2023-03-27 07:14:50,435 DEBUG   discovery:1205:method URL being requested: GET https://gmail.googleapis.com/gmail/v1/users/me/messages?q=from%3A%22orkut%22+subject%3A%22orkut%22&maxResults=50&alt=json
+2023-03-27 07:14:50,819 INFO    email:25:bulk_insert_message_ids Saved message ids
+2023-03-27 07:14:50,823 DEBUG   connectionpool:1003:_new_conn Starting new HTTPS connection (1): www.googleapis.com:443
+2023-03-27 07:14:51,419 DEBUG   connectionpool:456:_make_request https://www.googleapis.com:443 "POST /batch/gmail/v1 HTTP/1.1" 200 None
+2023-03-27 07:14:51,435 INFO    email:50:bulk_sync_labels Synchronized message labels
+2023-03-27 07:14:51,451 INFO    email:76:bulk_insert_attributes_and_labels Saved message data
+2023-03-27 07:14:51,451 INFO    email_processor:63:__process_batch_request Processed 13 emails
+2023-03-27 07:14:51,451 INFO    email_processor:106:_download_and_save_message_ids Next page token is None
+2023-03-27 07:15:09,384 INFO    __init__:49:autodetect file_cache is only supported with oauth2client<4.0.0
+2023-03-27 07:15:09,388 DEBUG   discovery:1205:method URL being requested: GET https://gmail.googleapis.com/gmail/v1/users/me/labels?alt=json
+2023-03-27 07:15:09,969 DEBUG   db_utils:18:get_new_connection Created new connection with id: 166
+2023-03-27 07:15:09,994 DEBUG   discovery:1205:method URL being requested: GET https://gmail.googleapis.com/gmail/v1/users/me/messages?q=from%3A%22orkut%22+subject%3A%22Bali+trip%22&maxResults=50&alt=json
+2023-03-27 07:35:41,919 INFO    __init__:49:autodetect file_cache is only supported with oauth2client<4.0.0
+2023-03-27 07:35:41,931 DEBUG   db_utils:18:get_new_connection Created new connection with id: 167
+2023-03-27 07:37:41,324 INFO    __init__:49:autodetect file_cache is only supported with oauth2client<4.0.0
+2023-03-27 07:37:41,341 DEBUG   db_utils:18:get_new_connection Created new connection with id: 168
+2023-03-27 07:37:41,355 DEBUG   discovery:1205:method URL being requested: GET https://gmail.googleapis.com/gmail/v1/users/me/labels?alt=json
+2023-03-27 07:37:41,880 DEBUG   discovery:1205:method URL being requested: GET https://gmail.googleapis.com/gmail/v1/users/me/messages?q=from%3A%22orkut%22+subject%3A%22Bali+trip%22&maxResults=50&alt=json
+2023-03-27 07:39:18,194 INFO    __init__:49:autodetect file_cache is only supported with oauth2client<4.0.0
+2023-03-27 07:39:18,208 DEBUG   db_utils:18:get_new_connection Created new connection with id: 169
+2023-03-27 07:39:18,214 DEBUG   discovery:1205:method URL being requested: GET https://gmail.googleapis.com/gmail/v1/users/me/labels?alt=json
+2023-03-27 07:39:18,825 DEBUG   discovery:1205:method URL being requested: GET https://gmail.googleapis.com/gmail/v1/users/me/messages?q=subject%3A%22Bali+trip%22&maxResults=50&alt=json
+2023-03-27 07:39:19,316 INFO    email:34:bulk_insert_message_ids Saved message ids
+2023-03-27 07:39:19,321 DEBUG   connectionpool:1003:_new_conn Starting new HTTPS connection (1): www.googleapis.com:443
+2023-03-27 07:39:19,813 DEBUG   connectionpool:456:_make_request https://www.googleapis.com:443 "POST /batch/gmail/v1 HTTP/1.1" 200 None
+2023-03-27 07:39:19,836 INFO    email:59:bulk_sync_labels Synchronized message labels
+2023-03-27 07:39:19,846 INFO    email:85:bulk_insert_attributes_and_labels Saved message data
+2023-03-27 07:39:19,846 INFO    email_processor:60:__process_batch_request Processed 6 emails
+2023-03-27 07:39:19,846 INFO    email_processor:105:_download_and_save_message_ids Next page token is None
+2023-03-27 09:17:03,163 INFO    google_api:39:__setup_token Creating / refreshing token
+2023-03-27 09:17:03,163 DEBUG   requests:192:__call__ Making request: POST https://oauth2.googleapis.com/token
+2023-03-27 09:17:03,165 DEBUG   connectionpool:1003:_new_conn Starting new HTTPS connection (1): oauth2.googleapis.com:443
+2023-03-27 09:17:03,459 DEBUG   connectionpool:456:_make_request https://oauth2.googleapis.com:443 "POST /token HTTP/1.1" 200 None
+2023-03-27 09:17:03,472 INFO    __init__:49:autodetect file_cache is only supported with oauth2client<4.0.0
+2023-03-27 09:17:03,496 DEBUG   db_utils:18:get_new_connection Created new connection with id: 172
+2023-03-27 09:17:03,503 DEBUG   discovery:1205:method URL being requested: GET https://gmail.googleapis.com/gmail/v1/users/me/labels?alt=json
+2023-03-27 09:17:04,107 DEBUG   discovery:1205:method URL being requested: GET https://gmail.googleapis.com/gmail/v1/users/me/messages?q=subject%3A%22Bali+trip%22&maxResults=50&alt=json
+2023-03-27 09:17:04,590 INFO    email:34:bulk_insert_message_ids Saved message ids
+2023-03-27 09:17:04,593 DEBUG   connectionpool:1003:_new_conn Starting new HTTPS connection (1): www.googleapis.com:443
+2023-03-27 09:17:04,992 DEBUG   connectionpool:456:_make_request https://www.googleapis.com:443 "POST /batch/gmail/v1 HTTP/1.1" 200 None
+2023-03-27 09:17:05,012 INFO    email:59:bulk_sync_labels Synchronized message labels
+2023-03-27 09:17:05,023 INFO    email:85:bulk_insert_attributes_and_labels Saved message data
+2023-03-27 09:17:05,023 INFO    email_processor:60:__process_batch_request Processed 6 emails
+2023-03-27 09:17:05,024 INFO    email_processor:105:_download_and_save_message_ids Next page token is None
+2023-03-27 09:47:08,538 INFO    __init__:49:autodetect file_cache is only supported with oauth2client<4.0.0
+2023-03-27 09:47:08,563 DEBUG   db_utils:18:get_new_connection Created new connection with id: 9
+2023-03-27 09:47:08,575 DEBUG   discovery:1205:method URL being requested: GET https://gmail.googleapis.com/gmail/v1/users/me/labels?alt=json
+2023-03-27 09:47:09,402 DEBUG   discovery:1205:method URL being requested: GET https://gmail.googleapis.com/gmail/v1/users/me/messages?q=subject%3A%22Bali+Trip%22&maxResults=50&alt=json
+2023-03-27 09:47:09,800 INFO    email:34:bulk_insert_message_ids Saved message ids
+2023-03-27 09:47:09,804 DEBUG   connectionpool:1003:_new_conn Starting new HTTPS connection (1): www.googleapis.com:443
+2023-03-27 09:47:10,200 DEBUG   connectionpool:456:_make_request https://www.googleapis.com:443 "POST /batch/gmail/v1 HTTP/1.1" 200 None
+2023-03-27 09:47:10,223 INFO    email:58:upsert_labels Synchronized message labels
+2023-03-27 09:47:10,237 INFO    email:82:upsert_attributes_and_labels Saved message data
+2023-03-27 09:47:10,237 INFO    email_processor:60:__process_batch_request Processed 6 emails
+2023-03-27 09:47:10,237 INFO    email_processor:105:_download_and_save_message_ids Next page token is None
+2023-03-27 09:47:45,791 INFO    __init__:49:autodetect file_cache is only supported with oauth2client<4.0.0
+2023-03-27 09:47:45,800 DEBUG   db_utils:18:get_new_connection Created new connection with id: 10
+2023-03-27 09:47:45,802 DEBUG   discovery:1205:method URL being requested: GET https://gmail.googleapis.com/gmail/v1/users/me/labels?alt=json
+2023-03-27 09:47:46,196 DEBUG   discovery:1205:method URL being requested: GET https://gmail.googleapis.com/gmail/v1/users/me/messages?q=subject%3A%22Bali+Trip%22&maxResults=50&alt=json
+2023-03-27 09:47:46,499 INFO    email:34:bulk_insert_message_ids Saved message ids
+2023-03-27 09:47:46,504 DEBUG   connectionpool:1003:_new_conn Starting new HTTPS connection (1): www.googleapis.com:443
+2023-03-27 09:47:46,850 DEBUG   connectionpool:456:_make_request https://www.googleapis.com:443 "POST /batch/gmail/v1 HTTP/1.1" 200 None
+2023-03-27 09:47:46,870 INFO    email:58:upsert_labels Synchronized message labels
+2023-03-27 09:47:46,883 INFO    email:82:upsert_attributes_and_labels Saved message data
+2023-03-27 09:47:46,883 INFO    email_processor:60:__process_batch_request Processed 6 emails
+2023-03-27 09:47:46,883 INFO    email_processor:105:_download_and_save_message_ids Next page token is None
+2023-03-27 09:49:28,504 INFO    __init__:49:autodetect file_cache is only supported with oauth2client<4.0.0
+2023-03-27 09:52:02,192 INFO    __init__:49:autodetect file_cache is only supported with oauth2client<4.0.0
+2023-03-27 09:52:02,194 DEBUG   rules_processor:126:process_rules final query condition is `subject` like "%Bali Trip%"
+2023-03-27 09:52:02,201 DEBUG   db_utils:18:get_new_connection Created new connection with id: 11
+2023-03-27 09:52:02,211 DEBUG   rules_processor:58:_close_connection Closed connection: 11
+2023-03-27 09:52:02,211 DEBUG   rules_processor:138:process_rules {'ids': ['16726580cb393b97', '1672a7b6322cba96', '16731b46f01c180c', '1676352734cee166', '167978ddfce68aa', '1679ccb32817ce32'], 'addLabelIds': ['Label_7242846678098072756', 'UNREAD'], 'removeLabelIds': ['STARRED']}
+2023-03-27 09:52:53,567 INFO    __init__:49:autodetect file_cache is only supported with oauth2client<4.0.0
+2023-03-27 09:52:53,569 DEBUG   rules_processor:126:process_rules final query condition is `subject` like "%Bali Trip%"
+2023-03-27 09:52:53,575 DEBUG   db_utils:18:get_new_connection Created new connection with id: 12
+2023-03-27 09:52:53,576 DEBUG   rules_processor:58:_close_connection Closed connection: 12
+2023-03-27 09:52:53,576 DEBUG   rules_processor:138:process_rules {'ids': ['16726580cb393b97', '1672a7b6322cba96', '16731b46f01c180c', '1676352734cee166', '167978ddfce68aa', '1679ccb32817ce32'], 'addLabelIds': ['Label_7242846678098072756', 'UNREAD'], 'removeLabelIds': ['STARRED']}
+2023-03-27 09:52:53,583 DEBUG   discovery:1205:method URL being requested: POST https://gmail.googleapis.com/gmail/v1/users/me/messages/batchModify?
+2023-03-27 09:54:48,936 INFO    __init__:49:autodetect file_cache is only supported with oauth2client<4.0.0
+2023-03-27 09:54:48,938 DEBUG   rules_processor:126:process_rules final query condition is `subject` like "%Bali Trip%"
+2023-03-27 09:54:48,946 DEBUG   db_utils:18:get_new_connection Created new connection with id: 14
+2023-03-27 09:54:48,948 DEBUG   rules_processor:58:_close_connection Closed connection: 14
+2023-03-27 09:54:48,948 DEBUG   rules_processor:138:process_rules {'ids': ['16726580cb393b97', '1672a7b6322cba96', '16731b46f01c180c', '1676352734cee166', '167978ddfce68aa', '1679ccb32817ce32'], 'addLabelIds': ['Label_7242846678098072756', 'UNREAD'], 'removeLabelIds': ['STARRED']}
+2023-03-27 09:54:48,952 DEBUG   discovery:1205:method URL being requested: POST https://gmail.googleapis.com/gmail/v1/users/me/messages/batchModify?
+2023-03-27 09:56:32,320 INFO    __init__:49:autodetect file_cache is only supported with oauth2client<4.0.0
+2023-03-27 09:56:32,324 DEBUG   rules_processor:126:process_rules final query condition is `subject` like "%Bali Trip%"
+2023-03-27 09:56:32,330 DEBUG   db_utils:18:get_new_connection Created new connection with id: 16
+2023-03-27 09:56:32,332 DEBUG   rules_processor:58:_close_connection Closed connection: 16
+2023-03-27 09:56:32,332 DEBUG   rules_processor:138:process_rules {'ids': ['16726580cb393b97', '1672a7b6322cba96', '16731b46f01c180c', '1676352734cee166', '167978ddfce68aa', '1679ccb32817ce32'], 'addLabelIds': ['Label_7242846678098072756', 'UNREAD'], 'removeLabelIds': ['STARRED']}
+2023-03-27 09:56:32,339 DEBUG   discovery:1205:method URL being requested: POST https://gmail.googleapis.com/gmail/v1/users/me/messages/batchModify?
+2023-03-27 09:57:04,702 INFO    __init__:49:autodetect file_cache is only supported with oauth2client<4.0.0
+2023-03-27 09:57:04,704 DEBUG   rules_processor:126:process_rules final query condition is `subject` like "%Bali Trip%"
+2023-03-27 09:57:04,711 DEBUG   db_utils:18:get_new_connection Created new connection with id: 18
+2023-03-27 09:57:04,713 DEBUG   rules_processor:58:_close_connection Closed connection: 18
+2023-03-27 09:57:04,714 DEBUG   rules_processor:138:process_rules {'ids': ['16726580cb393b97', '1672a7b6322cba96', '16731b46f01c180c', '1676352734cee166', '167978ddfce68aa', '1679ccb32817ce32'], 'addLabelIds': ['Label_7242846678098072756', 'UNREAD'], 'removeLabelIds': ['STARRED']}
+2023-03-27 09:57:04,719 DEBUG   discovery:1205:method URL being requested: POST https://gmail.googleapis.com/gmail/v1/users/me/messages/batchModify?
+2023-03-27 10:00:16,297 INFO    __init__:49:autodetect file_cache is only supported with oauth2client<4.0.0
+2023-03-27 10:00:16,300 DEBUG   rules_processor:126:process_rules final query condition is `subject` like "%Bali Trip%"
+2023-03-27 10:00:16,307 DEBUG   db_utils:18:get_new_connection Created new connection with id: 20
+2023-03-27 10:00:16,309 DEBUG   rules_processor:58:_close_connection Closed connection: 20
+2023-03-27 10:00:16,309 DEBUG   rules_processor:138:process_rules {'ids': ['16726580cb393b97', '1672a7b6322cba96', '16731b46f01c180c', '1676352734cee166', '167978ddfce68aa', '1679ccb32817ce32'], 'addLabelIds': ['Label_7242846678098072756', 'UNREAD'], 'removeLabelIds': ['STARRED']}
+2023-03-27 10:00:16,314 DEBUG   discovery:1205:method URL being requested: POST https://gmail.googleapis.com/gmail/v1/users/me/messages/batchModify?
+2023-03-27 10:00:54,516 INFO    __init__:49:autodetect file_cache is only supported with oauth2client<4.0.0
+2023-03-27 10:00:54,519 DEBUG   rules_processor:126:process_rules final query condition is `subject` like "%Bali Trip%"
+2023-03-27 10:00:54,526 DEBUG   db_utils:18:get_new_connection Created new connection with id: 22
+2023-03-27 10:00:54,527 DEBUG   rules_processor:58:_close_connection Closed connection: 22
+2023-03-27 10:00:54,527 DEBUG   rules_processor:138:process_rules {'ids': ['16726580cb393b97', '1672a7b6322cba96', '16731b46f01c180c', '1676352734cee166', '167978ddfce68aa', '1679ccb32817ce32'], 'addLabelIds': ['Label_7242846678098072756', 'UNREAD'], 'removeLabelIds': ['STARRED']}
+2023-03-27 10:00:54,531 DEBUG   discovery:1205:method URL being requested: POST https://gmail.googleapis.com/gmail/v1/users/me/messages/batchModify?
+2023-03-27 10:01:17,649 INFO    __init__:49:autodetect file_cache is only supported with oauth2client<4.0.0
+2023-03-27 10:01:17,651 DEBUG   rules_processor:126:process_rules final query condition is `subject` like "%Bali Trip%"
+2023-03-27 10:01:17,657 DEBUG   db_utils:18:get_new_connection Created new connection with id: 24
+2023-03-27 10:01:17,658 DEBUG   rules_processor:58:_close_connection Closed connection: 24
+2023-03-27 10:01:17,659 DEBUG   rules_processor:138:process_rules {'ids': ['16726580cb393b97', '1672a7b6322cba96', '16731b46f01c180c', '1676352734cee166', '167978ddfce68aa', '1679ccb32817ce32'], 'addLabelIds': ['Label_7242846678098072756', 'UNREAD'], 'removeLabelIds': ['STARRED']}
+2023-03-27 10:01:17,665 DEBUG   discovery:1205:method URL being requested: POST https://gmail.googleapis.com/gmail/v1/users/me/messages/batchModify?
+2023-03-27 10:02:04,544 INFO    __init__:49:autodetect file_cache is only supported with oauth2client<4.0.0
+2023-03-27 10:02:04,546 DEBUG   rules_processor:126:process_rules final query condition is `subject` like "%Bali Trip%"
+2023-03-27 10:02:04,554 DEBUG   db_utils:18:get_new_connection Created new connection with id: 26
+2023-03-27 10:02:04,556 DEBUG   rules_processor:58:_close_connection Closed connection: 26
+2023-03-27 10:02:04,556 DEBUG   rules_processor:138:process_rules {'ids': ['16726580cb393b97', '1672a7b6322cba96', '16731b46f01c180c', '1676352734cee166', '167978ddfce68aa', '1679ccb32817ce32'], 'addLabelIds': ['Label_7242846678098072756', 'UNREAD'], 'removeLabelIds': ['STARRED']}
+2023-03-27 10:02:04,559 DEBUG   discovery:1205:method URL being requested: POST https://gmail.googleapis.com/gmail/v1/users/me/messages/batchModify?
+2023-03-27 10:02:05,116 INFO    rules_processor:149:process_rules Processed 6 of 6
+2023-03-27 10:04:18,879 INFO    __init__:49:autodetect file_cache is only supported with oauth2client<4.0.0
+2023-03-27 10:04:18,888 DEBUG   db_utils:18:get_new_connection Created new connection with id: 28
+2023-03-27 10:04:18,892 DEBUG   discovery:1205:method URL being requested: GET https://gmail.googleapis.com/gmail/v1/users/me/labels?alt=json
+2023-03-27 10:04:19,468 DEBUG   discovery:1205:method URL being requested: GET https://gmail.googleapis.com/gmail/v1/users/me/messages?q=subject%3A%22Bali+Trip%22&maxResults=50&alt=json
+2023-03-27 10:04:20,976 INFO    email:34:bulk_insert_message_ids Saved message ids
+2023-03-27 10:04:20,980 DEBUG   connectionpool:1003:_new_conn Starting new HTTPS connection (1): www.googleapis.com:443
+2023-03-27 10:04:21,472 DEBUG   connectionpool:456:_make_request https://www.googleapis.com:443 "POST /batch/gmail/v1 HTTP/1.1" 200 None
+2023-03-27 10:04:21,499 INFO    email:58:upsert_labels Synchronized message labels
+2023-03-27 10:04:21,510 INFO    email:82:upsert_attributes_and_labels Saved message data
+2023-03-27 10:04:21,510 INFO    email_processor:60:__process_batch_request Processed 6 emails
+2023-03-27 10:04:21,511 INFO    email_processor:105:_download_and_save_message_ids Next page token is None
+2023-03-27 10:07:08,335 INFO    __init__:49:autodetect file_cache is only supported with oauth2client<4.0.0
+2023-03-27 10:07:08,337 DEBUG   rules_processor:126:process_rules final query condition is `subject` like "%Bali Trip%"
+2023-03-27 10:07:08,343 DEBUG   db_utils:18:get_new_connection Created new connection with id: 29
+2023-03-27 10:07:08,344 DEBUG   rules_processor:58:_close_connection Closed connection: 29
+2023-03-27 10:07:08,344 DEBUG   rules_processor:138:process_rules {'ids': ['16726580cb393b97', '1672a7b6322cba96', '16731b46f01c180c', '1676352734cee166', '167978ddfce68aa', '1679ccb32817ce32'], 'addLabelIds': ['Label_7242846678098072756', 'UNREAD'], 'removeLabelIds': ['Label_6750378022126076362', 'IMPORTANT']}
+2023-03-27 10:07:08,349 DEBUG   discovery:1205:method URL being requested: POST https://gmail.googleapis.com/gmail/v1/users/me/messages/batchModify?
+2023-03-27 10:07:09,025 INFO    rules_processor:149:process_rules Processed 6 of 6
+2023-03-27 10:09:54,083 INFO    __init__:49:autodetect file_cache is only supported with oauth2client<4.0.0
+2023-03-27 10:09:54,093 DEBUG   db_utils:18:get_new_connection Created new connection with id: 31
+2023-03-27 10:09:54,099 DEBUG   discovery:1205:method URL being requested: GET https://gmail.googleapis.com/gmail/v1/users/me/labels?alt=json
+2023-03-27 10:09:54,708 DEBUG   discovery:1205:method URL being requested: GET https://gmail.googleapis.com/gmail/v1/users/me/messages?q=subject%3A%22Bali+Trip%22&maxResults=50&alt=json
+2023-03-27 10:09:55,215 INFO    email:34:bulk_insert_message_ids Saved message ids
+2023-03-27 10:09:55,219 DEBUG   connectionpool:1003:_new_conn Starting new HTTPS connection (1): www.googleapis.com:443
+2023-03-27 10:09:55,707 DEBUG   connectionpool:456:_make_request https://www.googleapis.com:443 "POST /batch/gmail/v1 HTTP/1.1" 200 None
+2023-03-27 10:09:55,723 INFO    email:58:upsert_labels Synchronized message labels
+2023-03-27 10:09:55,737 INFO    email:82:upsert_attributes_and_labels Saved message data
+2023-03-27 10:09:55,737 INFO    email_processor:60:__process_batch_request Processed 6 emails
+2023-03-27 10:09:55,737 INFO    email_processor:105:_download_and_save_message_ids Next page token is None
+2023-03-27 10:11:00,883 INFO    __init__:49:autodetect file_cache is only supported with oauth2client<4.0.0
+2023-03-27 10:11:00,885 DEBUG   rules_processor:126:process_rules final query condition is `subject` like "%Bali Trip%"
+2023-03-27 10:11:00,892 DEBUG   db_utils:18:get_new_connection Created new connection with id: 32
+2023-03-27 10:11:00,896 DEBUG   rules_processor:58:_close_connection Closed connection: 32
+2023-03-27 10:11:00,896 DEBUG   rules_processor:138:process_rules {'ids': [], 'addLabelIds': ['Label_7242846678098072756', 'UNREAD'], 'removeLabelIds': ['Label_6750378022126076362', 'IMPORTANT']}
+2023-03-27 10:11:00,898 DEBUG   discovery:1205:method URL being requested: POST https://gmail.googleapis.com/gmail/v1/users/me/messages/batchModify?
+2023-03-27 10:12:51,967 INFO    __init__:49:autodetect file_cache is only supported with oauth2client<4.0.0
+2023-03-27 10:12:51,969 DEBUG   rules_processor:126:process_rules final query condition is `subject` like "%Bali Trip%"
+2023-03-27 10:12:51,976 DEBUG   db_utils:18:get_new_connection Created new connection with id: 33
+2023-03-27 10:12:51,977 DEBUG   rules_processor:58:_close_connection Closed connection: 33
+2023-03-27 10:13:25,995 INFO    __init__:49:autodetect file_cache is only supported with oauth2client<4.0.0
+2023-03-27 10:13:25,998 DEBUG   rules_processor:126:process_rules final query condition is `subject` like "%Bali Trip%"
+2023-03-27 10:13:26,004 DEBUG   db_utils:18:get_new_connection Created new connection with id: 34
+2023-03-27 10:13:26,005 DEBUG   rules_processor:58:_close_connection Closed connection: 34
+2023-03-27 10:14:14,308 INFO    __init__:49:autodetect file_cache is only supported with oauth2client<4.0.0
+2023-03-27 10:14:14,310 DEBUG   rules_processor:126:process_rules final query condition is `subject` like "%Bali Trip%"
+2023-03-27 10:14:14,314 DEBUG   db_utils:18:get_new_connection Created new connection with id: 35
+2023-03-27 10:14:14,315 DEBUG   rules_processor:58:_close_connection Closed connection: 35
+2023-03-27 10:15:44,054 INFO    __init__:49:autodetect file_cache is only supported with oauth2client<4.0.0
+2023-03-27 10:15:44,062 DEBUG   db_utils:18:get_new_connection Created new connection with id: 36
+2023-03-27 10:15:44,066 DEBUG   discovery:1205:method URL being requested: GET https://gmail.googleapis.com/gmail/v1/users/me/labels?alt=json
+2023-03-27 10:15:44,459 DEBUG   discovery:1205:method URL being requested: GET https://gmail.googleapis.com/gmail/v1/users/me/messages?q=subject%3A%22Bali+Trip%22&maxResults=50&alt=json
+2023-03-27 10:15:44,768 INFO    email:34:bulk_insert_message_ids Saved message ids
+2023-03-27 10:15:44,772 DEBUG   connectionpool:1003:_new_conn Starting new HTTPS connection (1): www.googleapis.com:443
+2023-03-27 10:15:45,152 DEBUG   connectionpool:456:_make_request https://www.googleapis.com:443 "POST /batch/gmail/v1 HTTP/1.1" 200 None
+2023-03-27 10:15:45,169 INFO    email:58:upsert_labels Synchronized message labels
+2023-03-27 10:15:45,182 INFO    email:82:upsert_attributes_and_labels Saved message data
+2023-03-27 10:15:45,182 INFO    email_processor:60:__process_batch_request Processed 6 emails
+2023-03-27 10:15:45,182 INFO    email_processor:105:_download_and_save_message_ids Next page token is None
+2023-03-27 10:15:55,140 INFO    __init__:49:autodetect file_cache is only supported with oauth2client<4.0.0
+2023-03-27 10:15:55,143 DEBUG   rules_processor:126:process_rules final query condition is `subject` like "%Bali Trip%"
+2023-03-27 10:15:55,150 DEBUG   db_utils:18:get_new_connection Created new connection with id: 37
+2023-03-27 10:15:55,151 DEBUG   rules_processor:58:_close_connection Closed connection: 37
+2023-03-27 10:15:55,151 DEBUG   rules_processor:142:process_rules {'ids': ['16726580cb393b97', '1672a7b6322cba96', '16731b46f01c180c', '1676352734cee166', '167978ddfce68aa', '1679ccb32817ce32'], 'addLabelIds': ['Label_7242846678098072756', 'UNREAD'], 'removeLabelIds': ['Label_6750378022126076362', 'IMPORTANT']}
+2023-03-27 10:15:55,154 DEBUG   discovery:1205:method URL being requested: POST https://gmail.googleapis.com/gmail/v1/users/me/messages/batchModify?
+2023-03-27 10:15:55,740 INFO    rules_processor:153:process_rules Processed 6 of 6
+2023-03-27 10:22:17,040 INFO    google_api:39:__setup_token Creating / refreshing token
+2023-03-27 10:22:17,041 DEBUG   requests:192:__call__ Making request: POST https://oauth2.googleapis.com/token
+2023-03-27 10:22:17,043 DEBUG   connectionpool:1003:_new_conn Starting new HTTPS connection (1): oauth2.googleapis.com:443
+2023-03-27 10:22:17,238 DEBUG   connectionpool:456:_make_request https://oauth2.googleapis.com:443 "POST /token HTTP/1.1" 200 None
+2023-03-27 10:22:17,244 INFO    __init__:49:autodetect file_cache is only supported with oauth2client<4.0.0
+2023-03-27 10:22:17,247 DEBUG   rules_processor:126:process_rules final query condition is `subject` like "%Bali Trip%"
+2023-03-27 10:22:17,254 DEBUG   db_utils:18:get_new_connection Created new connection with id: 39
+2023-03-27 10:22:17,255 DEBUG   rules_processor:58:_close_connection Closed connection: 39
+2023-03-27 10:22:17,255 DEBUG   rules_processor:142:process_rules {'ids': ['16726580cb393b97', '1672a7b6322cba96', '16731b46f01c180c', '1676352734cee166', '167978ddfce68aa', '1679ccb32817ce32'], 'addLabelIds': ['Label_7242846678098072756', 'UNREAD'], 'removeLabelIds': ['Label_6750378022126076362', 'IMPORTANT']}
+2023-03-27 10:22:17,258 DEBUG   discovery:1205:method URL being requested: POST https://gmail.googleapis.com/gmail/v1/users/me/messages/batchModify?
+2023-03-27 10:22:17,882 INFO    rules_processor:153:process_rules Processed 6 of 6
+2023-03-27 10:22:21,959 INFO    __init__:49:autodetect file_cache is only supported with oauth2client<4.0.0
+2023-03-27 10:22:21,967 DEBUG   db_utils:18:get_new_connection Created new connection with id: 41
+2023-03-27 10:22:21,970 DEBUG   discovery:1205:method URL being requested: GET https://gmail.googleapis.com/gmail/v1/users/me/labels?alt=json
+2023-03-27 10:22:22,593 DEBUG   discovery:1205:method URL being requested: GET https://gmail.googleapis.com/gmail/v1/users/me/messages?q=subject%3A%22Bali+Trip%22&maxResults=50&alt=json
+2023-03-27 10:22:22,941 INFO    email:34:bulk_insert_message_ids Saved message ids
+2023-03-27 10:22:22,943 DEBUG   connectionpool:1003:_new_conn Starting new HTTPS connection (1): www.googleapis.com:443
+2023-03-27 10:22:23,382 DEBUG   connectionpool:456:_make_request https://www.googleapis.com:443 "POST /batch/gmail/v1 HTTP/1.1" 200 None
+2023-03-27 10:22:23,405 INFO    email:58:upsert_labels Synchronized message labels
+2023-03-27 10:22:23,415 INFO    email:82:upsert_attributes_and_labels Saved message data
+2023-03-27 10:22:23,415 INFO    email_processor:60:__process_batch_request Processed 6 emails
+2023-03-27 10:22:23,416 INFO    email_processor:105:_download_and_save_message_ids Next page token is None
+2023-03-27 10:25:26,874 INFO    __init__:49:autodetect file_cache is only supported with oauth2client<4.0.0
+2023-03-27 10:25:26,877 DEBUG   rules_processor:126:process_rules final query condition is `subject` like "%Bali Trip%"
+2023-03-27 10:25:26,884 DEBUG   db_utils:18:get_new_connection Created new connection with id: 42
+2023-03-27 10:25:26,885 DEBUG   rules_processor:58:_close_connection Closed connection: 42
+2023-03-27 10:25:26,885 DEBUG   rules_processor:142:process_rules {'ids': ['16726580cb393b97', '1672a7b6322cba96', '16731b46f01c180c', '1676352734cee166', '167978ddfce68aa', '1679ccb32817ce32'], 'addLabelIds': ['Label_7242846678098072756', 'UNREAD'], 'removeLabelIds': ['Label_6750378022126076362', 'IMPORTANT']}
+2023-03-27 10:25:26,889 DEBUG   discovery:1205:method URL being requested: POST https://gmail.googleapis.com/gmail/v1/users/me/messages/batchModify?
+2023-03-27 10:25:27,713 INFO    rules_processor:153:process_rules Processed 6 of 6
+2023-03-27 10:26:08,544 INFO    __init__:49:autodetect file_cache is only supported with oauth2client<4.0.0
+2023-03-27 10:26:08,553 DEBUG   db_utils:18:get_new_connection Created new connection with id: 44
+2023-03-27 10:26:08,556 DEBUG   discovery:1205:method URL being requested: GET https://gmail.googleapis.com/gmail/v1/users/me/labels?alt=json
+2023-03-27 10:26:08,937 DEBUG   discovery:1205:method URL being requested: GET https://gmail.googleapis.com/gmail/v1/users/me/messages?q=subject%3A%22Bali+Trip%22&maxResults=50&alt=json
+2023-03-27 10:26:09,236 INFO    email:34:bulk_insert_message_ids Saved message ids
+2023-03-27 10:26:09,240 DEBUG   connectionpool:1003:_new_conn Starting new HTTPS connection (1): www.googleapis.com:443
+2023-03-27 10:26:09,600 DEBUG   connectionpool:456:_make_request https://www.googleapis.com:443 "POST /batch/gmail/v1 HTTP/1.1" 200 None
+2023-03-27 10:26:09,618 INFO    email:58:upsert_labels Synchronized message labels
+2023-03-27 10:26:09,630 INFO    email:82:upsert_attributes_and_labels Saved message data
+2023-03-27 10:26:09,630 INFO    email_processor:60:__process_batch_request Processed 6 emails
+2023-03-27 10:26:09,631 INFO    email_processor:105:_download_and_save_message_ids Next page token is None
+2023-03-27 10:26:13,400 INFO    __init__:49:autodetect file_cache is only supported with oauth2client<4.0.0
+2023-03-27 10:26:13,402 DEBUG   rules_processor:126:process_rules final query condition is `subject` like "%Bali Trip%"
+2023-03-27 10:26:13,408 DEBUG   db_utils:18:get_new_connection Created new connection with id: 45
+2023-03-27 10:26:13,409 DEBUG   rules_processor:58:_close_connection Closed connection: 45
+2023-03-27 10:26:13,410 DEBUG   rules_processor:142:process_rules {'ids': ['16726580cb393b97', '1672a7b6322cba96', '16731b46f01c180c', '1676352734cee166', '167978ddfce68aa', '1679ccb32817ce32'], 'addLabelIds': ['Label_7242846678098072756', 'UNREAD'], 'removeLabelIds': ['Label_6750378022126076362', 'IMPORTANT']}
+2023-03-27 10:26:13,412 DEBUG   discovery:1205:method URL being requested: POST https://gmail.googleapis.com/gmail/v1/users/me/messages/batchModify?
+2023-03-27 10:26:13,977 INFO    rules_processor:153:process_rules Processed 6 of 6
+2023-03-27 10:28:19,313 INFO    __init__:49:autodetect file_cache is only supported with oauth2client<4.0.0
+2023-03-27 10:28:19,321 DEBUG   db_utils:18:get_new_connection Created new connection with id: 47
+2023-03-27 10:28:19,324 DEBUG   discovery:1205:method URL being requested: GET https://gmail.googleapis.com/gmail/v1/users/me/labels?alt=json
+2023-03-27 10:28:19,727 DEBUG   discovery:1205:method URL being requested: GET https://gmail.googleapis.com/gmail/v1/users/me/messages?q=subject%3A%22orkut%22&maxResults=50&alt=json
+2023-03-27 10:28:20,128 INFO    email:34:bulk_insert_message_ids Saved message ids
+2023-03-27 10:28:20,132 DEBUG   connectionpool:1003:_new_conn Starting new HTTPS connection (1): www.googleapis.com:443
+2023-03-27 10:28:20,626 DEBUG   connectionpool:456:_make_request https://www.googleapis.com:443 "POST /batch/gmail/v1 HTTP/1.1" 200 None
+2023-03-27 10:28:20,651 INFO    email:58:upsert_labels Synchronized message labels
+2023-03-27 10:28:20,691 INFO    email:82:upsert_attributes_and_labels Saved message data
+2023-03-27 10:28:20,691 INFO    email_processor:60:__process_batch_request Processed 14 emails
+2023-03-27 10:28:20,692 INFO    email_processor:105:_download_and_save_message_ids Next page token is None
+2023-03-27 10:29:17,293 INFO    __init__:49:autodetect file_cache is only supported with oauth2client<4.0.0
+2023-03-27 10:29:17,295 DEBUG   rules_processor:126:process_rules final query condition is `subject` like "%orkut%"
+2023-03-27 10:29:17,302 DEBUG   db_utils:18:get_new_connection Created new connection with id: 48
+2023-03-27 10:29:17,303 DEBUG   rules_processor:58:_close_connection Closed connection: 48
+2023-03-27 10:29:17,303 DEBUG   rules_processor:142:process_rules {'ids': ['1273f2dc515a197a', '1275645b3d3c2677', '127d34e8dc4183f5', '12a4ffdf87aa61c8', '12aea3b53fd6ed77', '12b56b9ba5f80927', '12b56bb8f191011b', '12beeae981ee026a', '12c107a6101b5e64', '12c107b07942489b', '143dd76881db81e5', '143e20a714bd47e4', '14707ec63282cdf1', '1871c10ee1a7a7ab'], 'addLabelIds': ['Label_6750378022126076362', 'IMPORTANT'], 'removeLabelIds': ['Label_7242846678098072756', 'UNREAD']}
+2023-03-27 10:29:17,305 DEBUG   discovery:1205:method URL being requested: POST https://gmail.googleapis.com/gmail/v1/users/me/messages/batchModify?
+2023-03-27 10:29:17,997 INFO    rules_processor:153:process_rules Processed 14 of 14
+2023-03-27 10:30:21,700 INFO    __init__:49:autodetect file_cache is only supported with oauth2client<4.0.0
+2023-03-27 10:30:21,702 DEBUG   rules_processor:126:process_rules final query condition is `subject` like "%orkut%"
+2023-03-27 10:30:21,708 DEBUG   db_utils:18:get_new_connection Created new connection with id: 50
+2023-03-27 10:30:21,709 DEBUG   rules_processor:58:_close_connection Closed connection: 50
+2023-03-27 10:30:21,709 DEBUG   rules_processor:142:process_rules {'ids': ['1273f2dc515a197a', '1275645b3d3c2677', '127d34e8dc4183f5', '12a4ffdf87aa61c8', '12aea3b53fd6ed77', '12b56b9ba5f80927', '12b56bb8f191011b', '12beeae981ee026a', '12c107a6101b5e64', '12c107b07942489b', '143dd76881db81e5', '143e20a714bd47e4', '14707ec63282cdf1', '1871c10ee1a7a7ab'], 'addLabelIds': ['Label_6750378022126076362', 'IMPORTANT'], 'removeLabelIds': ['Label_7242846678098072756', 'UNREAD']}
+2023-03-27 10:30:21,711 DEBUG   discovery:1205:method URL being requested: POST https://gmail.googleapis.com/gmail/v1/users/me/messages/batchModify?
+2023-03-27 10:30:22,415 INFO    rules_processor:153:process_rules Processed 14 of 14
+2023-03-27 10:31:33,961 INFO    __init__:49:autodetect file_cache is only supported with oauth2client<4.0.0
+2023-03-27 10:31:33,963 DEBUG   rules_processor:126:process_rules final query condition is `subject` like "%orkut%"
+2023-03-27 10:31:33,971 DEBUG   db_utils:18:get_new_connection Created new connection with id: 52
+2023-03-27 10:31:33,972 DEBUG   rules_processor:58:_close_connection Closed connection: 52
+2023-03-27 10:31:33,972 DEBUG   rules_processor:142:process_rules {'ids': ['1273f2dc515a197a', '1275645b3d3c2677', '127d34e8dc4183f5', '12a4ffdf87aa61c8', '12aea3b53fd6ed77', '12b56b9ba5f80927', '12b56bb8f191011b', '12beeae981ee026a', '12c107a6101b5e64', '12c107b07942489b', '143dd76881db81e5', '143e20a714bd47e4', '14707ec63282cdf1', '1871c10ee1a7a7ab'], 'addLabelIds': ['Label_6750378022126076362', 'IMPORTANT'], 'removeLabelIds': ['Label_7242846678098072756', 'UNREAD']}
+2023-03-27 10:31:33,976 DEBUG   discovery:1205:method URL being requested: POST https://gmail.googleapis.com/gmail/v1/users/me/messages/batchModify?
+2023-03-27 10:31:34,832 INFO    rules_processor:153:process_rules Processed 14 of 14
+2023-03-27 10:34:40,707 INFO    __init__:49:autodetect file_cache is only supported with oauth2client<4.0.0
+2023-03-27 10:34:40,716 DEBUG   db_utils:18:get_new_connection Created new connection with id: 54
+2023-03-27 10:34:40,720 DEBUG   discovery:1205:method URL being requested: GET https://gmail.googleapis.com/gmail/v1/users/me/labels?alt=json
+2023-03-27 10:34:41,163 DEBUG   discovery:1205:method URL being requested: GET https://gmail.googleapis.com/gmail/v1/users/me/messages?q=subject%3A%22orkut%22&maxResults=50&alt=json
+2023-03-27 10:34:41,486 INFO    email:34:bulk_insert_message_ids Saved message ids
+2023-03-27 10:34:41,490 DEBUG   connectionpool:1003:_new_conn Starting new HTTPS connection (1): www.googleapis.com:443
+2023-03-27 10:34:41,992 DEBUG   connectionpool:456:_make_request https://www.googleapis.com:443 "POST /batch/gmail/v1 HTTP/1.1" 200 None
+2023-03-27 10:34:42,023 INFO    email:58:upsert_labels Synchronized message labels
+2023-03-27 10:34:42,044 INFO    email:82:upsert_attributes_and_labels Saved message data
+2023-03-27 10:34:42,044 INFO    email_processor:60:__process_batch_request Processed 14 emails
+2023-03-27 10:34:42,044 INFO    email_processor:105:_download_and_save_message_ids Next page token is None
+2023-03-27 10:39:13,288 DEBUG   google_api:42:__setup_token Using existing token
+2023-03-27 10:40:03,726 DEBUG   google_api:42:__setup_token Using existing token
+2023-03-27 10:45:10,132 INFO    __init__:49:autodetect file_cache is only supported with oauth2client<4.0.0
+2023-03-27 10:45:10,146 DEBUG   db_utils:18:get_new_connection Created new connection with id: 55
+2023-03-27 10:45:10,152 DEBUG   discovery:1205:method URL being requested: GET https://gmail.googleapis.com/gmail/v1/users/me/labels?alt=json
+2023-03-27 10:45:10,616 DEBUG   discovery:1205:method URL being requested: GET https://gmail.googleapis.com/gmail/v1/users/me/messages?q=subject%3A%22orkut%22&maxResults=50&alt=json
+2023-03-27 10:45:10,970 INFO    email:34:bulk_insert_message_ids Saved message ids
+2023-03-27 10:45:10,974 DEBUG   connectionpool:1003:_new_conn Starting new HTTPS connection (1): www.googleapis.com:443
+2023-03-27 10:45:11,609 DEBUG   connectionpool:456:_make_request https://www.googleapis.com:443 "POST /batch/gmail/v1 HTTP/1.1" 200 None
+2023-03-27 10:45:11,640 INFO    email:58:upsert_labels Synchronized message labels
+2023-03-27 10:45:11,662 INFO    email:82:upsert_attributes_and_labels Saved message data
+2023-03-27 10:45:11,662 INFO    email_processor:60:__process_batch_request Processed 14 emails
+2023-03-27 10:45:11,663 INFO    email_processor:105:_download_and_save_message_ids Next page token is None
+2023-03-27 10:45:33,976 INFO    __init__:49:autodetect file_cache is only supported with oauth2client<4.0.0
+2023-03-27 10:45:33,978 DEBUG   rules_processor:126:process_rules final query condition is `subject` like "%orkut%"
+2023-03-27 10:45:33,988 DEBUG   db_utils:18:get_new_connection Created new connection with id: 56
+2023-03-27 10:45:33,989 DEBUG   rules_processor:58:_close_connection Closed connection: 56
+2023-03-27 10:45:33,989 DEBUG   rules_processor:141:process_rules {'ids': ['1273f2dc515a197a', '1275645b3d3c2677', '127d34e8dc4183f5', '12a4ffdf87aa61c8', '12aea3b53fd6ed77', '12b56b9ba5f80927', '12b56bb8f191011b', '12beeae981ee026a', '12c107a6101b5e64', '12c107b07942489b', '143dd76881db81e5', '143e20a714bd47e4', '14707ec63282cdf1', '1871c10ee1a7a7ab'], 'addLabelIds': ['Label_7242846678098072756', 'UNREAD'], 'removeLabelIds': ['Label_6750378022126076362', 'IMPORTANT']}
+2023-03-27 10:45:33,994 DEBUG   discovery:1205:method URL being requested: POST https://gmail.googleapis.com/gmail/v1/users/me/messages/batchModify?
+2023-03-27 10:45:34,673 INFO    rules_processor:152:process_rules Processed 14 of 14
+2023-03-27 11:34:55,026 DEBUG   google_api:39:__setup_token Using existing token
+2023-03-27 11:34:55,026 DEBUG   oauth2_session:104:new_state Generated new state 6JUxZSkgENGL991AxwCPqaCeywv0C3.
+2023-03-27 11:36:31,457 DEBUG   google_api:39:__setup_token Using existing token
+2023-03-27 11:36:31,458 DEBUG   oauth2_session:104:new_state Generated new state U3Ay2FjBuTFSm7uuTCoRRhmshQVQ7g.
+2023-03-27 11:36:52,697 INFO    flow:464:log_message "GET /?state=U3Ay2FjBuTFSm7uuTCoRRhmshQVQ7g&code=4/0AVHEtk6i-yUvapLjGt1IKehMKyDcrusXwi7LmHv-QDIgXErhw6rdgt9d-hL7xbCxHw4A0Q&scope=https://www.googleapis.com/auth/gmail.readonly%20https://www.googleapis.com/auth/gmail.modify HTTP/1.1" 200 65
+2023-03-27 11:36:52,698 DEBUG   oauth2_session:304:fetch_token Encoding `client_id` "1035085568976-hhaugi6p1pufpms65u1q1h8dh5nu0ldi.apps.googleusercontent.com" with `client_secret` as Basic auth credentials.
+2023-03-27 11:36:52,699 DEBUG   oauth2_session:518:request Requesting url https://oauth2.googleapis.com/token using method POST.
+2023-03-27 11:36:52,699 DEBUG   oauth2_session:519:request Supplying headers {'Accept': 'application/json', 'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'} and data {'grant_type': 'authorization_code', 'code': '4/0AVHEtk6i-yUvapLjGt1IKehMKyDcrusXwi7LmHv-QDIgXErhw6rdgt9d-hL7xbCxHw4A0Q', 'redirect_uri': 'http://localhost:52227/'}
+2023-03-27 11:36:52,699 DEBUG   oauth2_session:520:request Passing through key word arguments {'timeout': None, 'auth': <requests.auth.HTTPBasicAuth object at 0x7f0fd0f35610>, 'verify': True, 'proxies': None, 'cert': None}.
+2023-03-27 11:36:52,704 DEBUG   connectionpool:1003:_new_conn Starting new HTTPS connection (1): oauth2.googleapis.com:443
+2023-03-27 11:36:52,966 DEBUG   connectionpool:456:_make_request https://oauth2.googleapis.com:443 "POST /token HTTP/1.1" 200 None
+2023-03-27 11:36:52,974 DEBUG   oauth2_session:353:fetch_token Request to fetch token completed with status 200.
+2023-03-27 11:36:52,975 DEBUG   oauth2_session:354:fetch_token Request url was https://oauth2.googleapis.com/token
+2023-03-27 11:36:52,975 DEBUG   oauth2_session:355:fetch_token Request headers were {'User-Agent': 'python-requests/2.28.2', 'Accept-Encoding': 'gzip, deflate', 'Accept': 'application/json', 'Connection': 'keep-alive', 'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8', 'Content-Length': '157', 'Authorization': 'Basic MTAzNTA4NTU2ODk3Ni1oaGF1Z2k2cDFwdWZwbXM2NXUxcTFoOGRoNW51MGxkaS5hcHBzLmdvb2dsZXVzZXJjb250ZW50LmNvbTpHT0NTUFgtTVlOVURiMVJ2RDd1OFF6MUVYQk54WG5mNWtVbA=='}
+2023-03-27 11:36:52,975 DEBUG   oauth2_session:356:fetch_token Request body was grant_type=authorization_code&code=4%2F0AVHEtk6i-yUvapLjGt1IKehMKyDcrusXwi7LmHv-QDIgXErhw6rdgt9d-hL7xbCxHw4A0Q&redirect_uri=http%3A%2F%2Flocalhost%3A52227%2F
+2023-03-27 11:36:52,975 DEBUG   oauth2_session:357:fetch_token Response headers were {'Date': 'Mon, 27 Mar 2023 06:06:52 GMT', 'Cache-Control': 'no-cache, no-store, max-age=0, must-revalidate', 'Pragma': 'no-cache', 'Expires': 'Mon, 01 Jan 1990 00:00:00 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Vary': 'Origin, X-Origin, Referer', 'Content-Encoding': 'gzip', 'Server': 'scaffolding on HTTPServer2', 'X-XSS-Protection': '0', 'X-Frame-Options': 'SAMEORIGIN', 'X-Content-Type-Options': 'nosniff', 'Alt-Svc': 'h3=":443"; ma=2592000,h3-29=":443"; ma=2592000', 'Transfer-Encoding': 'chunked'} and content {
+  "access_token": "ya29.a0Ael9sCOxrRNIPp6Ld5p6leW3neWA29wPh9yEcK4yWOdD5aSswbH3XOefbp85UuB7b8evNOuI-rzPnH3qtU61tiXf3vTQLp3BIzMMl5p67DJc2hWbCLkq5d1ASTONIz3pQg6Oub2ND0FTKgwnf5wO424K1PdaaCgYKASwSARESFQF4udJh48U5kMt3sDkdhlg4gEcmSA0163",
+  "expires_in": 3599,
+  "refresh_token": "1//0gZe4ZOJDewwZCgYIARAAGBASNwF-L9IrQmjmAo3wm6TXYfPxx3J9d78wMuyqacCuWyDRP95e70PVshJcaplr-_dcK-PV2NYanlg",
+  "scope": "https://www.googleapis.com/auth/gmail.modify https://www.googleapis.com/auth/gmail.readonly",
+  "token_type": "Bearer"
+}.
+2023-03-27 11:36:52,975 DEBUG   oauth2_session:358:fetch_token Invoking 0 token response hooks.
+2023-03-27 11:36:52,975 DEBUG   oauth2_session:368:fetch_token Obtained token {'access_token': 'ya29.a0Ael9sCOxrRNIPp6Ld5p6leW3neWA29wPh9yEcK4yWOdD5aSswbH3XOefbp85UuB7b8evNOuI-rzPnH3qtU61tiXf3vTQLp3BIzMMl5p67DJc2hWbCLkq5d1ASTONIz3pQg6Oub2ND0FTKgwnf5wO424K1PdaaCgYKASwSARESFQF4udJh48U5kMt3sDkdhlg4gEcmSA0163', 'expires_in': 3599, 'refresh_token': '1//0gZe4ZOJDewwZCgYIARAAGBASNwF-L9IrQmjmAo3wm6TXYfPxx3J9d78wMuyqacCuWyDRP95e70PVshJcaplr-_dcK-PV2NYanlg', 'scope': ['https://www.googleapis.com/auth/gmail.modify', 'https://www.googleapis.com/auth/gmail.readonly'], 'token_type': 'Bearer', 'expires_at': 1679900811.9756758}.
+2023-03-27 11:36:52,981 INFO    __init__:49:autodetect file_cache is only supported with oauth2client<4.0.0
+2023-03-27 11:36:52,984 DEBUG   rules_processor:126:process_rules final query condition is `subject` like "%orkut%"
+2023-03-27 11:36:52,991 DEBUG   db_utils:18:get_new_connection Created new connection with id: 58
+2023-03-27 11:36:52,997 DEBUG   rules_processor:58:_close_connection Closed connection: 58
+2023-03-27 11:37:03,485 INFO    __init__:49:autodetect file_cache is only supported with oauth2client<4.0.0
+2023-03-27 11:37:03,495 DEBUG   db_utils:18:get_new_connection Created new connection with id: 59
+2023-03-27 11:37:03,501 DEBUG   discovery:1205:method URL being requested: GET https://gmail.googleapis.com/gmail/v1/users/me/labels?alt=json
+2023-03-27 11:37:04,160 DEBUG   discovery:1205:method URL being requested: GET https://gmail.googleapis.com/gmail/v1/users/me/messages?q=subject%3A%22orkut%22&maxResults=50&alt=json
+2023-03-27 11:37:04,480 INFO    email:34:bulk_insert_message_ids Saved message ids
+2023-03-27 11:37:04,484 DEBUG   connectionpool:1003:_new_conn Starting new HTTPS connection (1): www.googleapis.com:443
+2023-03-27 11:37:05,051 DEBUG   connectionpool:456:_make_request https://www.googleapis.com:443 "POST /batch/gmail/v1 HTTP/1.1" 200 None
+2023-03-27 11:37:05,076 INFO    email:58:upsert_labels Synchronized message labels
+2023-03-27 11:37:05,119 INFO    email:82:upsert_attributes_and_labels Saved message data
+2023-03-27 11:37:05,119 INFO    email_processor:58:__process_batch_request Processed 14 emails
+2023-03-27 11:37:05,119 INFO    email_processor:115:_download_and_save_emails Next page token is None

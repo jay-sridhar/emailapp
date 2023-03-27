@@ -1,25 +1,25 @@
+DROP DATABASE IF EXISTS `google_mail`;
+CREATE DATABASE `google_mail`;
 
+use `google_mail`;
+
+--
 -- Table structure for table `email`
 --
 
 DROP TABLE IF EXISTS `email`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `email` (
   `id` bigint unsigned NOT NULL,
   `thread_id` bigint unsigned NOT NULL,
   `refreshed_on` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT="This table captures message id as ";
-/*!40101 SET character_set_client = @saved_cs_client */;
+) ENGINE=InnoDB COMMENT="This table captures message id as ";
 
 --
 -- Table structure for table `email_attributes`
 --
 
 DROP TABLE IF EXISTS `email_attributes`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `email_attributes` (
   `message_id` bigint unsigned NOT NULL,
   `history_id` bigint unsigned DEFAULT NULL,
@@ -38,16 +38,13 @@ CREATE TABLE `email_attributes` (
   KEY `idx_ea_to` (`to`(100)),
   KEY `idx_ea_subject` (`subject`(200)),
   CONSTRAINT `fk_ea_lbl_email_id` FOREIGN KEY (`message_id`) REFERENCES `email` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
+) ENGINE=InnoDB;
 
 --
 -- Table structure for table `label`
 --
 
 DROP TABLE IF EXISTS `label`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `label` (
   `id` varchar(255) NOT NULL,
   `name` varchar(255) NOT NULL,
@@ -55,27 +52,25 @@ CREATE TABLE `label` (
   `refreshed_on` datetime NOT NULL,
   PRIMARY KEY (`id`),
   KEY `idx_label_name` (`name`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
+) ENGINE=InnoDB;
 
 --
 -- Table structure for table `message_label`
 --
 
 DROP TABLE IF EXISTS `message_label`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `message_label` (
   `message_id` bigint unsigned NOT NULL,
   `labels` json NOT NULL,
   `refreshed_on` datetime NOT NULL,
   PRIMARY KEY (`message_id`),
   CONSTRAINT `fk_ml_lbl_email_id` FOREIGN KEY (`message_id`) REFERENCES `email` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
+) ENGINE=InnoDB;
 
-
-
+--
+-- Table structure for table `message_part`
+--
+DROP TABLE IF EXISTS `message_part`;
 CREATE TABLE `message_part` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
   `message_id` bigint unsigned NOT NULL,

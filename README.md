@@ -58,8 +58,10 @@ Notes:
 1. When running the script for the first time, Google asks you to consent to the scopes required via a link.
 After you give consent to the scopes from your Google account, a token.json file will be generated under src/config/.
 ![initial_perm_consent_image](./resources/initial_perm_consent.png "Initial OAuth permission link")
+2. Copy the URL into a browser and give consent.
+![consent_to_scopes](./resources/consent_to_scopes.png) "Consent to read and modify scopes"
 
-2. Running the above script would fetch all the emails from your Gmail account. You could make use of the available arguments to pull a subset of emails to the database.
+3. Running the above script would fetch all the emails from your Gmail account. You could make use of the available arguments to pull a subset of emails to the database.
 ~~~
 usage: email_download_script.py [-h] [-f fetch_mode] [-m max_limit] [-s page_size] [-q querystring] [-l labels [labels ...]]
 
@@ -91,7 +93,7 @@ Demo screens
 ![search_filter_image](./resources/search_filter.png "Search filter on Gmail")
 2. Running the download script with filter condition to only fetch the needed emails for demo into the DB
 ![download_script](./resources/download_script.png "Download script")
-3. Running the count queries to verify. (Note: I had some emails stored in the DB earlier and missed to capture the count before vs after)
+3. Running the count queries to verify. 
 ![download_queries](./resources/download_queries.png "DB queries to verify counts")
 4. A snapshot of the logs corresponding to the download action. Log file is available under the /logs folder which is placed under the project root, (/emailapp). Sample log
 ![fetch_script_logs](./resources/fetch_script_logs.png "Log messages corresponding to the download script")
@@ -108,15 +110,17 @@ Note for Windows users: Except the directory path and the python path setting, t
 
 Useful Limits
 -------
-| Category                                                         | Limit |
-|------------------------------------------------------------------|:-----:|
-| Maximum email content size (including encoding)                  | 25 MB |
-| Google account's username - max characters allowed               |  30   |
-| Maximum recipients per email                                     |  500  |
-| Maximum characters allowed in label names                        |  225  |
-| Maximum labels allowed per user account                          |  500  |
-| Maximum retention period for a trashed message (days)            |  30   |
-| Maximum message ids per bulk modify (via Gmail API)              | 1000  |
+| Category                                                                    | Limit |
+|-----------------------------------------------------------------------------|:-----:|
+| Maximum email content size (including encoding)                             | 25 MB |
+| Google account's username - max characters allowed                          |  30   |
+| Maximum recipients per email                                                |  500  |
+| Maximum characters allowed in label names                                   |  225  |
+| Maximum labels allowed per user account                                     |  500  |
+| Maximum retention period for a trashed message (days)                       |  30   |
+| Maximum page size when listing messages (via Gmail API)                     |  500  |
+| Maximum GET requests that could be added to a batch request (via Gmail API) |  100  |
+| Maximum message ids per bulk modify (via Gmail API)                         | 1000  |
 
 
 Improvement areas
@@ -124,8 +128,8 @@ Improvement areas
 1. Unit tests to be added.
 2. Parallelism when fetching emails and processing rules.
 3. Storing and indexing on to / cc values (separating alias and email ids)
-4. Storage to enable content parsing (of messages)
-5. Support for nested rules (query builder)
+4. Processing the message content (storage and searching). 
+5. Support for nested rules (query builder).
 
 Resources
 -------
