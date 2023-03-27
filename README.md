@@ -36,6 +36,7 @@ FLUSH PRIVILEGES;
 source schema.sql
 ~~~~~
 ![data_model_image](./resources/data_model.png "Data model")
+
 5. Set the Python path to 'src' directory
 ~~~~~
 cd src
@@ -58,8 +59,9 @@ Notes:
 1. When running the script for the first time, Google asks you to consent to the scopes required via a link.
 After you give consent to the scopes from your Google account, a token.json file will be generated under src/config/.
 ![initial_perm_consent_image](./resources/initial_perm_consent.png "Initial OAuth permission link")
+
 2. Copy the URL into a browser and give consent.
-![consent_to_scopes](./resources/consent_to_scopes.png) "Consent to read and modify scopes"
+![consent_to_scopes](./resources/consent_to_scopes.png) "Consent to read and modify scopes")
 
 3. Running the above script would fetch all the emails from your Gmail account. You could make use of the available arguments to pull a subset of emails to the database.
 ~~~
