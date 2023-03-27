@@ -10,7 +10,7 @@ Google API setup
 1. Enable [Google mail APIs](https://console.cloud.google.com/flows/enableapi?apiid=gmail.googleapis.com)
 2. Setup [OAuth credentials](https://console.cloud.google.com/apis/credentials?pli=1&project=restapi-274106)
 3. Add [gmail.modify](https://www.googleapis.com/auth/gmail.modify) scope
-3. Download the secrets (.json) and move it under emailapp/config/ as credentials.json
+3. Download the secrets (.json) and move it under src/config/ as credentials.json
 4. Note: Upon running the project for the first time Google will ask for consent to allow the app to access your account via the APIs
 
 Application setup steps
